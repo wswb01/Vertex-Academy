@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Vertex Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                        <span class="logo-text">Vertex<span class="logo-accent">Academy</span></span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="courses.html">Курсы</a></li>
+                    <li><a href="platform.html">Платформа</a></li>
+                    <li><a href="support.html">Поддержка</a></li>
+                    <li><a href="login.html" class="btn btn-outline">Войти</a></li>
+                </ul>
+                
+                <button class="nav-toggle" id="navToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="auth-container">
+        <div class="container">
+            <div class="auth-wrapper">
+                <div class="auth-form-container">
+                    <div class="auth-header">
+                        <h1 class="auth-title">Создать аккаунт</h1>
+                        <p class="auth-subtitle">Присоединяйтесь к сообществу 3D-художников</p>
+                    </div>
+                    
+                    <form class="auth-form" id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">Имя</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="firstName" placeholder="Иван" required>
+                                </div>
+                                <div class="form-error" id="firstNameError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Фамилия</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="lastName" placeholder="Иванов" required>
+                                </div>
+                                <div class="form-error" id="lastNameError"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="registerEmail" placeholder="your.email@example.com" required>
+                            </div>
+                            <div class="form-error" id="registerEmailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="registerPassword" class="form-label">Пароль</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="registerPassword" placeholder="Придумайте надежный пароль" required>
+                                <button type="button" class="password-toggle" id="toggleRegisterPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="passwordStrength"></div>
+                                </div>
+                                <span class="strength-text" id="passwordStrengthText">Надежность пароля</span>
+                            </div>
+                            <div class="password-hints">
+                                <p class="hint" id="lengthHint"><i class="fas fa-circle"></i> Минимум 8 символов</p>
+                                <p class="hint" id="uppercaseHint"><i class="fas fa-circle"></i> Заглавные и строчные буквы</p>
+                                <p class="hint" id="numberHint"><i class="fas fa-circle"></i> Хотя бы одна цифра</p>
+                                <p class="hint" id="specialHint"><i class="fas fa-circle"></i> Специальный символ</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">Подтверждение пароля</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" placeholder="Повторите пароль" required>
+                                <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-error" id="confirmPasswordError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userType" class="form-label">Кто вы?</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="userType" value="student" checked>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Студент</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="userType" value="professional">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Профессионал</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="userType" value="hobbyist">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Любитель</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" checked>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">Хочу получать новости о курсах и акциях</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" required>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">Я принимаю <a href="support.html#terms">Условия использования</a> и согласен с <a href="support.html#privacy">Политикой конфиденциальности</a></span>
+                            </label>
+                            <div class="form-error" id="termsError"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block btn-large">Создать аккаунт</button>
+                        
+                        <div class="auth-divider">
+                            <span>или зарегистрироваться с помощью</span>
+                        </div>
+                        
+                        <div class="social-auth">
+                            <button type="button" class="social-btn google-btn">
+                                <i class="fab fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                            <button type="button" class="social-btn vk-btn">
+                                <i class="fab fa-vk"></i>
+                                <span>ВКонтакте</span>
+                            </button>
+                            <button type="button" class="social-btn github-btn">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </button>
+                        </div>
+                        
+                        <div class="auth-footer">
+                            <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="auth-info">
+                    <div class="auth-info-content">
+                        <h2>Начните свой путь в 3D!</h2>
+                        <p>Присоединяйтесь к более чем 5000 студентов, которые уже создают 3D-миры с Vertex Academy.</p>
+                        
+                        <div class="auth-benefits">
+                            <div class="benefit">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h4>Бесплатные курсы</h4>
+                                    <p>Начните с бесплатных курсов по основам 3D</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit">
+                                <i class="fas fa-comments"></i>
+                                <div>
+                                    <h4>Поддержка сообщества</h4>
+                                    <p>Получайте помощь от опытных наставников</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit">
+                                <i class="fas fa-certificate"></i>
+                                <div>
+                                    <h4>Сертификаты</h4>
+                                    <p>Получайте сертификаты по окончании курсов</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit">
+                                <i class="fas fa-briefcase"></i>
+                                <div>
+                                    <h4>Карьерные возможности</h4>
+                                    <p>Подготовка к работе в геймдеве и киноиндустрии</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial">
+                            <p class="testimonial-text">"После регистрации я начал курс по Blender и через месяц уже создал свою первую 3D-модель. Обучение построено очень логично!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://via.placeholder.com/40" alt="Аватар" class="author-avatar">
+                                <div>
+                                    <h5>Максим Соколов</h5>
+                                    <p>Студент Vertex Academy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                        <span class="logo-text">Vertex<span class="logo-accent">Academy</span></span>
+                    </a>
+                    <p class="footer-tagline">Освойте профессию будущего уже сегодня!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Обучение</h4>
+                        <ul class="footer-list">
+                            <li><a href="courses.html">Все курсы</a></li>
+                            <li><a href="courses.html#beginner">Для начинающих</a></li>
+                            <li><a href="courses.html#modeling">Моделирование</a></li>
+                            <li><a href="platform.html#tasks">Задания</a></li>
+                            <li><a href="platform.html#resources">Ресурсы</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Платформа</h4>
+                        <ul class="footer-list">
+                            <li><a href="platform.html#about">О нас</a></li>
+                            <li><a href="platform.html#pricing">Цены</a></li>
+                            <li><a href="platform.html#career">Карьера</a></li>
+                            <li><a href="platform.html#blog">Блог</a></li>
+                            <li><a href="platform.html#contacts">Контакты</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Поддержка</h4>
+                        <ul class="footer-list">
+                            <li><a href="support.html#faq">FAQ</a></li>
+                            <li><a href="support.html#community">Сообщество</a></li>
+                            <li><a href="support.html#terms">Условия</a></li>
+                            <li><a href="support.html#privacy">Конфиденциальность</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2023 Vertex Academy. Все права защищены.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
