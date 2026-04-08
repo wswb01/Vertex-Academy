@@ -1,5 +1,45 @@
 // JavaScript для страниц аутентификации
+// Добавьте в начало файла после существующего кода
+import { sanitizeInput, trackEvent } from './main.js'; // если используете модули
 
+// Или просто добавьте эти функции (если без модулей)
+function protectAuthForms() {
+    const forms = document.querySelectorAll('#loginForm, #registerForm, #resetForm');
+    forms.forEach(form => {
+        // Добавляем honeypot
+        if(!form.querySelector('[name="honeypot"]')) {
+            const hp = document.createElement('input');
+            hp.type = 'text';
+            hp.name = 'honeypot';
+            hp.style.display = 'none';
+            form.appendChild(hp);
+        }
+        
+        form.addEventListener('submit', function(e) {
+            const honeypot = form.querySelector('[name="honeypot"]');
+            if(honeypot && honeypot.value) {
+                e.preventDefault();
+                alert('Ошибка безопасности');
+                return false;
+            }
+            
+            // Санитизация email и пароля (пароль не трогаем)
+            const emailField = form.querySelector('input[type="email"]');
+            if(emailField) {
+                emailField.value = emailField.value.trim().toLowerCase();
+            }
+            
+            trackEvent('auth', form.id || 'auth_form', 'submit');
+        });
+    });
+}
+
+// Вызовите эту функцию при загрузке
+if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', protectAuthForms);
+} else {
+    protectAuthForms();
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Общие элементы для обеих страниц
     const passwordToggles = document.querySelectorAll('.password-toggle');
