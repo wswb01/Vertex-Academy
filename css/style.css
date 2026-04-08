@@ -854,6 +854,64 @@ p {
     display: flex;
 }
 
+/* Сделать текст ответа бота светлым */
+.ai-message.bot {
+    background: #2d2d5e;
+    color: #ffffff !important;  /* Белый цвет текста */
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+.ai-message.user {
+    background: #667eea;
+    color: #ffffff !important;  /* Белый цвет текста пользователя */
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 85%;
+    word-wrap: break-word;
+    margin-left: auto;
+}
+
+/* Сделать светлым текст в заголовке AI */
+.ai-header {
+    color: #ffffff;
+    padding: 12px 16px;
+    background: #16213e;
+    border-bottom: 1px solid #667eea;
+}
+
+.ai-header strong {
+    color: #c4b5fd;  /* Светло-фиолетовый для акцента */
+}
+
+/* Светлый текст в области сообщений */
+.ai-messages {
+    background: #0f0f1f;
+    color: #f0f0f0;
+}
+
+/* Стили для ссылок внутри сообщений бота */
+.ai-message.bot a {
+    color: #a78bfa;  /* Светло-фиолетовый для ссылок */
+    text-decoration: underline;
+}
+
+.ai-message.bot strong {
+    color: #c4b5fd;  /* Светло-фиолетовый для жирного текста */
+}
+
+/* Стиль для текста "печатает..." */
+.ai-typing {
+    color: #a0a0c0;
+    font-style: italic;
+}
+
 /* Панель статистики */
 .stats-panel {
     position: fixed;
