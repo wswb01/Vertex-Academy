@@ -92,4 +92,55 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 3000);
         });
     }
+    // Добавьте защиту формы поддержки
+function initSupportForm() {
+    const form = document.getElementById('supportForm');
+    if(!form) return;
+    
+    // Добавляем honeypot
+    if(!form.querySelector('[name="honeypot"]')) {
+        const hp = document.createElement('input');
+        hp.type = 'text';
+        hp.name = 'honeypot';
+        hp.style.display = 'none';
+        form.appendChild(hp);
+    }
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const honeypot = form.querySelector('[name="honeypot"]');
+        if(honeypot && honeypot.value) {
+            alert('Ошибка: подозрительная активность');
+            return;
+        }
+        
+        // Сбор данных
+        const name = document.getElementById('name')?.value;
+        const email = document.getElementById('email')?.value;
+        const message = document.getElementById('message')?.value;
+        
+        if(!name || !email || !message) {
+            alert('Пожалуйста, заполните все поля');
+            return;
+        }
+        
+        // Имитация отправки
+        console.log('[SUPPORT] Заявка отправлена:', { name, email, message });
+        
+        if(window.trackFeedback) {
+            window.trackFeedback();
+        }
+        
+        alert('Спасибо! Ваше сообщение отправлено. Мы ответим в ближайшее время.');
+        form.reset();
+    });
+}
+
+// Инициализация
+if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSupportForm);
+} else {
+    initSupportForm();
+}
 });
