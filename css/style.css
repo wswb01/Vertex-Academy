@@ -808,3 +808,77 @@ p {
     background-color: var(--primary-color);
     transform: translateY(-3px);
 }
+
+
+/* AI Assistant - добавить в конец файла */
+.ai-assistant {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.ai-toggle {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-size: 28px;
+    transition: transform 0.2s;
+}
+
+.ai-toggle:hover {
+    transform: scale(1.1);
+}
+
+.ai-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 320px;
+    background: #1a1a2e;
+    border-radius: 16px;
+    display: none;
+    flex-direction: column;
+    border: 1px solid #667eea;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.ai-window.active {
+    display: flex;
+}
+
+/* Панель статистики */
+.stats-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    z-index: 999;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.stats-panel:hover {
+    background: rgba(0,0,0,0.95);
+}
+
+/* Безопасность */
+.security-badge {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    z-index: 999;
+}
