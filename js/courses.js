@@ -1,5 +1,30 @@
 // JavaScript для страницы курсов
+// Добавьте в начало или конец файла
+function initCourseTracking() {
+    const courseCards = document.querySelectorAll('.course-card, .course-item');
+    
+    courseCards.forEach((card, index) => {
+        const viewBtn = card.querySelector('button, .details-btn, .view-course');
+        if(viewBtn) {
+            viewBtn.addEventListener('click', () => {
+                const courseTitle = card.querySelector('h3, .title')?.innerText || `Course ${index + 1}`;
+                if(window.trackCourseView) {
+                    window.trackCourseView(courseTitle);
+                }
+                console.log(`[COURSES] Просмотр: ${courseTitle}`);
+            });
+        }
+    });
+    
+    console.log(`[COURSES] Отслеживание активно для ${courseCards.length} курсов`);
+}
 
+// Вызов при загрузке
+if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCourseTracking);
+} else {
+    initCourseTracking();
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Фильтрация курсов
     const filterTabs = document.querySelectorAll('.filter-tab');
