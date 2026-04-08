@@ -857,7 +857,7 @@ p {
 /* Сделать текст ответа бота светлым */
 .ai-message.bot {
     background: #2d2d5e;
-    color: #ffffff !important;  /* Белый цвет
+    color: #ffffff !important;  /* Белый цвет*/
     font-size: 14px;
     line-height: 1.5;
     padding: 10px 14px;
@@ -898,7 +898,7 @@ p {
 
 /* Стили для ссылок внутри сообщений бота */
 .ai-message.bot a {
-    color: #a78bfa;  /* Светло-фиолетовый для ссылок */
+    color:  #ffffff;  /* Светло-фиолетовый для ссылок */
     text-decoration: underline;
 }
 
